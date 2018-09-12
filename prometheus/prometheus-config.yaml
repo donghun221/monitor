@@ -24,7 +24,7 @@ data:
         labels:
           policyId: "cm-rs67auyk"
         annotations:
-          summary: "K8s Node {{ labels.node }} 状态为NotReady"
+          summary: "K8s Node {{ $labels.node }} 状态为NotReady"
       - alert: K8sNodeStatusException
         expr: kube_node_status_condition{condition!="Ready", status="true"} == 1
         for: 900s
@@ -110,8 +110,8 @@ data:
           summary: "Deploymnet {{ $labels.deployment }}replicas available为0"
   prometheus.yml: |
     global:
-      scrape_interval:     60s
-      evaluation_interval: 60s
+      scrape_interval:     5s
+      evaluation_interval: 5s
     alerting:
       alertmanagers:
       - static_configs:
