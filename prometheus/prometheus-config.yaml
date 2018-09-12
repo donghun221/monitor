@@ -124,7 +124,7 @@ data:
       relabel_configs:
       - source_labels: [__meta_kubernetes_pod_ip]
         target_label: __address__
-        replacement: ${1}:9100  
+        replacement: "${1}:9100"  
       - source_labels: [__meta_kubernetes_pod_host_ip]
         target_label: instance  
       - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_pod_label_app]
@@ -136,7 +136,7 @@ data:
       relabel_configs:
       - source_labels: [__meta_kubernetes_node_name]
         target_label: __address__
-        replacement: ${1}:4194  
+        replacement: "${1}:4194"  
     - job_name: 'kube-state-metrics'
       static_configs:
       - targets: ['kube-state-metrics:8080']
