@@ -130,6 +130,18 @@ data:
       - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_pod_label_app]
         regex: monitoring;node-exporter
         action: keep
+    - job_name: 'pushgateway'
+      kubernetes_sd_configs:
+      - role: pod
+      relabel_configs:
+      - source_labels: [__meta_kubernetes_pod_ip]
+        target_label: __address__
+        replacement: "$1:9090"  
+      - source_labels: [__meta_kubernetes_pod_host_ip]
+        target_label: instance  
+      - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_pod_label_app]
+        regex: monitoring;pushgateway
+        action: keep        
     - job_name: 'node-cadvisor'
       kubernetes_sd_configs:
       - role: node
