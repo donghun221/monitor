@@ -13,3 +13,5 @@ spec:
       containers:
       - image: prom/pushgateway:v0.5.2
         name: pushgateway
+      nodeSelector:
+        category: monitor   
