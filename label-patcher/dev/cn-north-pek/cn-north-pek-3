@@ -1,0 +1,8 @@
+spec:
+  template:
+    metadata:
+      labels:
+        realm: CNTencent
+        region: cn-north-pek
+        az: cn-north-pek-3
+        domain: dev
