@@ -43,6 +43,8 @@ spec:
           readOnly: true
         - mountPath: /data
           name: data-local
+      nodeSelector:
+        category: monitor          
       imagePullSecrets:
       - name: qcloudregistrykey
       restartPolicy: Always
