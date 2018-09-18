@@ -43,6 +43,8 @@ spec:
           subPath: sample.yaml
         - mountPath: /data
           name: grafana-dashboards-config
+      nodeSelector:
+        category: monitor   
       dnsPolicy: ClusterFirst
       imagePullSecrets:
       - name: qcloudregistrykey
