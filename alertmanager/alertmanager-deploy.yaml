@@ -52,6 +52,8 @@ spec:
         - mountPath: /etc/alertmanager
           name: config
           readOnly: true
+      nodeSelector:
+        category: monitor   
       dnsPolicy: ClusterFirst
       imagePullSecrets:
       - name: qcloudregistrykey
