@@ -42,7 +42,7 @@ spec:
           name: config
           readOnly: true
         - mountPath: /data
-          name: data-cbs
+          name: data-local
       imagePullSecrets:
       - name: qcloudregistrykey
       restartPolicy: Always
@@ -51,6 +51,6 @@ spec:
           defaultMode: 420
           name: prometheus-config
         name: config
-      - persistentVolumeClaim:
-          claimName: prometheus-cbs
-        name: data-cbs
+      - hostPath:
+          path: /root/apollo/env/prometheus/data
+        name: data-local
