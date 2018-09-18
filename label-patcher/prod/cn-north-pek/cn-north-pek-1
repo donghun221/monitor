@@ -1,0 +1,9 @@
+spec:
+  template:
+    metadata:
+      labels:
+        realm: CNTencent
+        region: cn-north-pek
+        az: cn-north-pek-1
+        domain: prod
+       
