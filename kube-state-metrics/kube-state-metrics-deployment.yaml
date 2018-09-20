@@ -3,6 +3,15 @@ apiVersion: apps/v1beta2
 # Kubernetes versions before 1.8.0 should use apps/v1beta1 or extensions/v1beta1
 kind: Deployment
 metadata:
+  annotations:
+    cloud.tencent.com/volume-configmap-info: '[{"name":"config","volumeType":"configMap","nfsPath":"","fsType":"","configId":"ccscf-927ooi4p","configVersion":"0.3","configVersionId":"ccscv-onbucwyj","configKeys":["config.yml"]}]'
+    "moniker.spinnaker.io/stack": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
+    "moniker.spinnaker.io/detail": kube-state-metrics   
+  labels:
+    az: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['az']}
+    domain: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}
+    realm: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['realm']}
+    region: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['region']}    
   name: kube-state-metrics
   namespace: monitoring
 spec:
