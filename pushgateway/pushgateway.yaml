@@ -20,8 +20,6 @@ spec:
         region: >-
           ${#stage('ApolloEnv')['context']['manifests'][0]['data']['region']}
       name: pushgateway
-      stack:  ${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}
-      detail: pushgateway
     spec:
       containers:
         - image: 'prom/pushgateway:v0.5.2'
