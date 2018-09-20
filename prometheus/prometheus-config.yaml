@@ -151,7 +151,7 @@ data:
         replacement: "$1:4194"  
     - job_name: 'kube-state-metrics'
       static_configs:
-      - targets: ['kube-state-metrics:8080']
+      - targets: ['ksm-${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}-kube-state-metrics:8080']
     rule_files:
     - "kubernetes.rules"
 kind: ConfigMap
