@@ -7,7 +7,7 @@ metadata:
     domain: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
     realm: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''realm'']}'
     region: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''region'']}'
-  name: prometheus
+  name: prometheus-${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}-prometheus
   namespace: monitoring
   annotations: 
     "moniker.spinnaker.io/stack": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
