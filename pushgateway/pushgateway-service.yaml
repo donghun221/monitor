@@ -10,7 +10,6 @@ metadata:
   annotations: 
     "moniker.spinnaker.io/stack": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
     "moniker.spinnaker.io/detail": pushgateway
-    "v.qq": <a href="https://v.qq.com/x/cover/e7hi6lep1yc51ca.html?vid=m0018vi92iy">lyb-06</a>
   name: pushgateway-${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}-pushgateway
   namespace: monitoring
 spec:
