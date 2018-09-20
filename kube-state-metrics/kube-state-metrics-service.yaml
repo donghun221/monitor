@@ -12,7 +12,7 @@ metadata:
     realm: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['realm']}
     region: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['region']}    
     k8s-app: kube-state-metrics
-  name: kube-state-metrics
+  name: kubestatemetrics
   namespace: monitoring
 spec:
   ports:
