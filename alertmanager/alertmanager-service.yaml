@@ -3,6 +3,17 @@ kind: Service
 metadata:
   labels:
     qcloud-app: alertmanager
+    az: >-
+      ${#stage('ApolloEnv')['context']['manifests'][0]['data']['az']}
+    domain: >-
+      ${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}
+    realm: >-
+      ${#stage('ApolloEnv')['context']['manifests'][0]['data']['realm']}
+    region: >-
+      ${#stage('ApolloEnv')['context']['manifests'][0]['data']['region']}    
+  annotations: 
+    "moniker.spinnaker.io/stack": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
+    "moniker.spinnaker.io/detail": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''region'']}'      
   name: alertmanager
   namespace: monitoring
 spec:
