@@ -1,13 +1,24 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: prometheus
+  name: prometheus-${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}-prometheus
   labels:
     app: prometheus
+    az: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''az'']}'
+    domain: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
+    realm: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''realm'']}'
+    region: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''region'']}'    
   namespace: monitoring
+  annotations: 
+    "moniker.spinnaker.io/stack": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
+    "moniker.spinnaker.io/detail": prometheus  
 spec:
   selector:
     app: prometheus
+    az: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''az'']}'
+    domain: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
+    realm: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''realm'']}'
+    region: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''region'']}'    
   ports:
     - port: 8081
       targetPort: 9090
