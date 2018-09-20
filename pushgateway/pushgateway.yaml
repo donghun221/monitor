@@ -1,27 +1,27 @@
 apiVersion: extensions/v1beta1
-  kind: Deployment
-  metadata:
-    name: pushgateway
-    namespace: monitoring
-  spec:
-    template:
-      metadata:
-        labels:
-          app: pushgateway
-          az: >-
-            ${#stage('ApolloEnv')['context']['manifests'][0]['data']['az']}
-          domain: >-
-            ${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}
-          realm: >-
-            ${#stage('ApolloEnv')['context']['manifests'][0]['data']['realm']}
-          region: >-
-            ${#stage('ApolloEnv')['context']['manifests'][0]['data']['region']}
-        name: pushgateway
-        stack:  ${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}
-        detail: pushgateway
-      spec:
-        containers:
-          - image: 'prom/pushgateway:v0.5.2'
-            name: pushgateway
-        nodeSelector:
-          category: monitor
+kind: Deployment
+metadata:
+  name: pushgateway
+  namespace: monitoring
+spec:
+  template:
+    metadata:
+      labels:
+        app: pushgateway
+        az: >-
+          ${#stage('ApolloEnv')['context']['manifests'][0]['data']['az']}
+        domain: >-
+          ${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}
+        realm: >-
+          ${#stage('ApolloEnv')['context']['manifests'][0]['data']['realm']}
+        region: >-
+          ${#stage('ApolloEnv')['context']['manifests'][0]['data']['region']}
+      name: pushgateway
+      stack:  ${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}
+      detail: pushgateway
+    spec:
+      containers:
+        - image: 'prom/pushgateway:v0.5.2'
+          name: pushgateway
+      nodeSelector:
+        category: monitor
