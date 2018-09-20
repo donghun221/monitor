@@ -12,8 +12,6 @@ metadata:
     "moniker.spinnaker.io/detail": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''region'']}'
   name: pushgateway
   namespace: monitoring
-  stack:  ${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}
-  detail: pushgateway    
 spec:
   ports:
     - port: 8081
