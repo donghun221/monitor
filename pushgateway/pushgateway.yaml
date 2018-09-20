@@ -5,7 +5,7 @@ metadata:
   namespace: monitoring
   annotations: 
     "moniker.spinnaker.io/stack": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
-    "moniker.spinnaker.io/detail": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''region'']}'  
+    "moniker.spinnaker.io/detail": pushgateway  
 spec:
   template:
     metadata:
