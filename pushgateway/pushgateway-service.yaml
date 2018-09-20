@@ -10,7 +10,7 @@ metadata:
   annotations: 
     "moniker.spinnaker.io/stack": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
     "moniker.spinnaker.io/detail": pushgateway
-  name: pushgateway-${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}-pushgateway
+  name: pushgateway-${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}-pushgateway
   namespace: monitoring
 spec:
   ports:
