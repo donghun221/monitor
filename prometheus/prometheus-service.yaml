@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: prometheus-${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}-prometheus
+  name: prometheus-'${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'-prometheus
   labels:
     app: prometheus
     az: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''az'']}'
@@ -10,7 +10,7 @@ metadata:
     region: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''region'']}'  
   namespace: monitoring
   annotations: 
-    "moniker.spinnaker.io/stack": ${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}
+    "moniker.spinnaker.io/stack": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
     "moniker.spinnaker.io/detail": prometheus  
 spec:
   selector:
