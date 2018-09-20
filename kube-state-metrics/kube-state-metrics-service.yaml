@@ -1,12 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
+  annotations:
+    cloud.tencent.com/volume-configmap-info: '[{"name":"config","volumeType":"configMap","nfsPath":"","fsType":"","configId":"ccscf-927ooi4p","configVersion":"0.3","configVersionId":"ccscv-onbucwyj","configKeys":["config.yml"]}]'
+    "moniker.spinnaker.io/stack": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
+    "moniker.spinnaker.io/detail": kube-state-metrics   
+    prometheus.io/scrape: 'true'
+  labels:
+    az: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['az']}
+    domain: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}
+    realm: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['realm']}
+    region: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['region']}    
+    k8s-app: kube-state-metrics
   name: kube-state-metrics
   namespace: monitoring
-  labels:
-    k8s-app: kube-state-metrics
-  annotations:
-    prometheus.io/scrape: 'true'
 spec:
   ports:
   - name: http-metrics
