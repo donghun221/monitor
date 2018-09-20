@@ -4,7 +4,7 @@ metadata:
   annotations:
     cloud.tencent.com/volume-configmap-info: '[{"name":"config","volumeType":"configMap","nfsPath":"","fsType":"","configId":"ccscf-927ooi4p","configVersion":"0.3","configVersionId":"ccscv-onbucwyj","configKeys":["config.yml"]}]'
     "moniker.spinnaker.io/stack": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
-    "moniker.spinnaker.io/detail": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''region'']}'    
+    "moniker.spinnaker.io/detail": alertmanager   
   labels:
     qcloud-app: alertmanager
   name: alertmanager
