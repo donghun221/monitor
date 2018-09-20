@@ -28,14 +28,10 @@ spec:
       creationTimestamp: null
       labels:
         qcloud-app: alertmanager
-        az: >-
-          ${#stage('ApolloEnv')['context']['manifests'][0]['data']['az']}
-        domain: >-
-          ${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}
-        realm: >-
-          ${#stage('ApolloEnv')['context']['manifests'][0]['data']['realm']}
-        region: >-
-          ${#stage('ApolloEnv')['context']['manifests'][0]['data']['region']}        
+        az: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['az']}
+        domain: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}
+        realm: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['realm']}
+        region: ${#stage('ApolloEnv')['context']['manifests'][0]['data']['region']}        
     spec:
       containers:
       - args:
