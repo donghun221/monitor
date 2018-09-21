@@ -1,9 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: grafana
   labels:
     app: grafana
+    az: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''az'']}'
+    domain: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
+    realm: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''realm'']}'
+    region: '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''region'']}'    
+  annotations: 
+    "moniker.spinnaker.io/stack": '${#stage(''ApolloEnv'')[''context''][''manifests''][0][''data''][''domain'']}'
+    "moniker.spinnaker.io/detail": pushgateway
+  name: grafana-${#stage('ApolloEnv')['context']['manifests'][0]['data']['domain']}-grafana    
   namespace: monitoring
 spec:
   selector:
