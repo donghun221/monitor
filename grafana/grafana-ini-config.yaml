@@ -15,6 +15,7 @@ data:
     [dashboards]
     [users]
     [auth]
+    disable_login_form ⁼ true
     [auth.anonymous]
     [auth.github]
     [auth.google]
